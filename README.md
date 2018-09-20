@@ -1,6 +1,8 @@
 SwiftyRSA
 =========
 
+**Maintainer(s):** [@ldiqual](https://github.com/ldiqual)
+
 [![](https://img.shields.io/cocoapods/v/SwiftyRSA.svg)](https://cocoapods.org/pods/SwiftyRSA)
 ![](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)
 ![](https://img.shields.io/cocoapods/p/SwiftyRSA.svg)
@@ -160,6 +162,14 @@ SwiftyRSA can verify digital signatures with a public key. SwiftyRSA will calcul
 ```swift
 let signature = try Signature(base64Encoded: "AAA===")
 let isSuccessful = try clear.verify(with: publicKey, signature: signature, digestType: .sha1)
+```
+
+### Create a public/private RSA key pair
+
+```swift
+let keyPair = SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+let privateKey = keyPair.privateKey
+let publicKey = keyPair.publicKey
 ```
 
 ### Export a key or access its content
